@@ -2,11 +2,8 @@
 
 namespace com.blackducksoftware.integration.hub.bdio.simple.model
 {
-    public class BdioProject : BdioNode 
+    public class BdioProject : BdioComponent
     {
-        [JsonProperty(PropertyName = "revision")]
-        public string Version { get; set; }
-
         public BdioProject()
         {
             Type = "Project";

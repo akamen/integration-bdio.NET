@@ -7,9 +7,9 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
     {
         private BdioPropertyHelper BdioPropertyHelper;
 
-        public BdioNodeFactory(BdioPropertyHelper BdioPropertyHelper)
+        public BdioNodeFactory(BdioPropertyHelper bdioPropertyHelper)
         {
-            this.BdioPropertyHelper = BdioPropertyHelper;
+            this.BdioPropertyHelper = bdioPropertyHelper;
         }
 
         public BdioBillOfMaterials CreateBillOfMaterials(string projectName)
@@ -17,18 +17,14 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             BdioBillOfMaterials billOfMaterials = new BdioBillOfMaterials();
             billOfMaterials.Id = string.Format("uuid:{0}", Guid.NewGuid().ToString());
             billOfMaterials.Name = string.Format("{0} Black Duck I/O Export", projectName);
-            billOfMaterials.SpecVersion = "1.1.0";
+            billOfMaterials.BdioSpecificationVersion = "1.1.0";
             return billOfMaterials;
         }
 
-        public BdioProject CreateProject(string projectName, string projectVersion, string id, string externalSystemTypeId, string externalId)
+        public BdioProject CreateProject(string projectName, string projectVersion, string bdioId, string forge, string externalId)
         {
-            BdioProject project = new BdioProject();
-            project.Id = id;
-            project.Name = projectName;
-            project.Version = projectVersion;
-            project.BdioExternalIdentifier = BdioPropertyHelper.CreateExternalIdentifier(externalSystemTypeId, externalId);
-            return project;
+            BdioExternalIdentifier externalIdentifier = BdioPropertyHelper.CreateExternalIdentifier(forge, externalId);
+            return CreateProject(projectName, projectVersion, bdioId, externalIdentifier);
         }
 
         public BdioProject CreateProject(string projectName, string projectVersion, string id, BdioExternalIdentifier externalIdentifier)
@@ -41,20 +37,16 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             return project;
         }
 
-        public BdioComponent CreateComponent(string componentName, string componentVersion, string id, string externalSystemTypeId, string externalId)
+        public BdioComponent CreateComponent(string componentName, string componentVersion, string bdioId, string forge, string externalId)
         {
-            BdioComponent component = new BdioComponent();
-            component.Id = id;
-            component.Name = componentName;
-            component.Version = componentVersion;
-            component.BdioExternalIdentifier = BdioPropertyHelper.CreateExternalIdentifier(externalSystemTypeId, externalId);
-            return component;
+            BdioExternalIdentifier externalIdentifier = BdioPropertyHelper.CreateExternalIdentifier(forge, externalId);
+            return CreateComponent(componentName, componentVersion, bdioId, externalIdentifier);
         }
 
-        public BdioComponent CreateComponent(string componentName, string componentVersion, string id, BdioExternalIdentifier externalIdentifier)
+        public BdioComponent CreateComponent(string componentName, string componentVersion, string bdioId, BdioExternalIdentifier externalIdentifier)
         {
             BdioComponent component = new BdioComponent();
-            component.Id = id;
+            component.Id = bdioId;
             component.Name = componentName;
             component.Version = componentVersion;
             component.BdioExternalIdentifier = externalIdentifier;

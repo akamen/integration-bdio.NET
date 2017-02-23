@@ -18,14 +18,14 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             BdioRelationship singleRelationship = new BdioRelationship();
             singleRelationship.Related = child.Id;
             singleRelationship.RelationshipType = "DYNAMIC_LINK";
-            node.AddRelationship(singleRelationship);
+            node.Relationships.Add(singleRelationship);
         }
 
-        public BdioExternalIdentifier CreateExternalIdentifier(string externalSystemTypeId, string externalId)
+        public BdioExternalIdentifier CreateExternalIdentifier(string forge, string externalId)
         {
             BdioExternalIdentifier externalIdentifier = new BdioExternalIdentifier();
             externalIdentifier.ExternalId = externalId;
-            externalIdentifier.ExternaleSystemTypeId = externalSystemTypeId;
+            externalIdentifier.Forge = forge;
             return externalIdentifier;
         }
 
@@ -41,7 +41,12 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
 
         public BdioExternalIdentifier CreateMavenExternalIdentifier(string group, string artifact, string version)
         {
-            return CreateExternalIdentifier("maven", string.Format("{0}:{1}:{2}", group, artifact, version));
+            return CreateExternalIdentifier("maven", CreateMavenExternalId(group, artifact, version));
+        }
+
+        public string CreateMavenExternalId(string group, string artifact, string version)
+        {
+            return string.Format("{0}:{1}:{2}", group, artifact, version);
         }
 
         /**
@@ -49,22 +54,42 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
          */
         public BdioExternalIdentifier CreatePypiExternalIdentifier(string name, string version)
         {
-            return CreateExternalIdentifier("pypi", string.Format("{0}/{1}", name, version));
+            return CreateExternalIdentifier("pypi", CreatePypyExternalId(name, version));
+        }
+
+        public string CreatePypyExternalId(string name, string version)
+        {
+            return string.Format("{0}/{1}", name, version);
         }
 
         public BdioExternalIdentifier CreateNugetExternalIdentifier(string name, string version)
         {
-            return CreateExternalIdentifier("nuget", string.Format("{0}/{1}", name, version));
+            return CreateExternalIdentifier("nuget", CreateNugetExternalId(name, version));
+        }
+
+        public string CreateNugetExternalId(string name, string version)
+        {
+            return string.Format("{0}/{1}", name, version);
         }
 
         public BdioExternalIdentifier CreateNpmExternalIdentifier(string name, string version)
         {
-            return CreateExternalIdentifier("npm", string.Format("{0}@{1}", name, version));
+            return CreateExternalIdentifier("npm", CreateNpmExternalId(name, version));
+        }
+
+        public string CreateNpmExternalId(string name, string version)
+        {
+            return string.Format("{0}@{1}", name, version);
         }
 
         public BdioExternalIdentifier CreateRubygemsExternalIdentifier(string name, string version)
         {
-            return CreateExternalIdentifier("rubygems", string.Format("{0}={1}", name, version));
+            return CreateExternalIdentifier("rubygems", CreateRubygemsExternalId(name, version));
+        }
+
+        public string CreateRubygemsExternalId(string name, string version)
+        {
+            return string.Format("{0}={1}", name, version);
         }
     }
 }

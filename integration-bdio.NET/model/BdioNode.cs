@@ -13,20 +13,11 @@ namespace com.blackducksoftware.integration.hub.bdio.simple.model
 
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
-        
+
         [JsonProperty(PropertyName = "externalIdentifier")]
         public BdioExternalIdentifier BdioExternalIdentifier { get; set; }
 
         [JsonProperty(PropertyName = "relationship")]
-        public List<BdioRelationship> Relationship { get; set; }
-
-        public void AddRelationship(BdioRelationship singleRelationship)
-        {
-            if (Relationship == null)
-            {
-                Relationship = new List<BdioRelationship>();
-            }
-            Relationship.Add(singleRelationship);
-        }
+        public List<BdioRelationship> Relationships { get; set; } = new List<BdioRelationship>();
     }
 }

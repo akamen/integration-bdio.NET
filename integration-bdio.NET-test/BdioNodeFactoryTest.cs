@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -12,7 +13,34 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
     public class BdioNodeFactoryTest
     {
         [TestMethod]
-        public void testFactory()
+        public void testWriterOutput()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            TextWriter writer = new StringWriter(stringBuilder);
+            BdioWriter bdioWriter = new BdioWriter(writer);
+            bdioWriter.WriteBdioNodes(GetBdioNodes());
+            bdioWriter.Dispose();
+
+            string expectedJson = GetExpectedJson();
+            string actualJson = stringBuilder.ToString();
+            VerifyJsonArraysEqual(expectedJson, actualJson);
+        }
+
+        [TestMethod]
+        public void TestOutputStreamOutput()
+        {
+            MemoryStream memoryStream = new MemoryStream();
+
+            BdioWriter bdioWriter = new BdioWriter(memoryStream);
+            bdioWriter.WriteBdioNodes(GetBdioNodes());
+            bdioWriter.Dispose();
+
+            string expectedJson = GetExpectedJson();
+            string actualJson = Encoding.UTF8.GetString(memoryStream.ToArray());
+            VerifyJsonArraysEqual(expectedJson, actualJson);
+        }
+
+        private List<BdioNode> GetBdioNodes()
         {
             BdioPropertyHelper bdioPropertyHelper = new BdioPropertyHelper();
             BdioNodeFactory bdioNodeFactory = new BdioNodeFactory(bdioPropertyHelper);
@@ -28,7 +56,7 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             bdioBillOfMaterials.Id = "uuid:45772d33-5353-44f1-8681-3d8a15540646";
 
             BdioProject bdioProject = bdioNodeFactory.CreateProject(projectName, projectVersion, projectId, projectExternalIdentifier);
-
+            
             BdioComponent cxfBundle = bdioNodeFactory.CreateComponent("cxf-bundle", "2.7.7",
                    bdioPropertyHelper.CreateBdioId("org.apache.cxf", "cxf-bundle", "2.7.7"),
                    bdioPropertyHelper.CreateMavenExternalIdentifier("org.apache.cxf", "cxf-bundle", "2.7.7"));
@@ -42,35 +70,36 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
                    bdioPropertyHelper.CreateBdioId("commons-lang", "commons-lang", "2.6"),
                    bdioPropertyHelper.CreateMavenExternalIdentifier("commons-lang", "commons-lang", "2.6"));
 
+            // we will now relate the constructed bdio nodes
+
+            // first, add the cxfBundle component as a child of the project - this project has a single direct dependency
             bdioPropertyHelper.AddRelationship(bdioProject, cxfBundle);
 
-            bdioPropertyHelper.AddRelationship(velocity, commonsCollections);
-            bdioPropertyHelper.AddRelationship(velocity, commonsLang);
+            // now, the cxfBundle component itself has two dependencies, which will appear in the final BOM as they are
+            // transitive dependencies of the project
+            bdioPropertyHelper.AddRelationships(cxfBundle, new List<BdioNode> { velocity, commonsLang });
 
-            bdioPropertyHelper.AddRelationship(cxfBundle, velocity);
-            bdioPropertyHelper.AddRelationship(cxfBundle, commonsLang);
+            // and the velocity component also has two dependencies - it will only add one additional entry to our final BOM
+            // as the commonsLang component was already included from the cxfBundle component above
+            bdioPropertyHelper.AddRelationships(velocity, new List<BdioNode> { commonsCollections, commonsLang });
 
             List<BdioNode> bdioNodes = new List<BdioNode>();
             bdioNodes.Add(bdioBillOfMaterials);
             bdioNodes.Add(bdioProject);
             bdioNodes.Add(cxfBundle);
             bdioNodes.Add(velocity);
-            bdioNodes.Add(commonsLang);
             bdioNodes.Add(commonsCollections);
+            bdioNodes.Add(commonsLang);
 
-            StringBuilder stringBuilder = new StringBuilder();
-            StringWriter writer = new StringWriter(stringBuilder);
-            BdioWriter bdioWriter = new BdioWriter(writer);
-            bdioWriter.WriteBdioNodes(bdioNodes);
-            bdioWriter.Dispose();
+            return bdioNodes;
+        }
 
-            string expected = File.ReadAllText("resources/sample.jsonld");
-            string actual = stringBuilder.ToString();
+        private void VerifyJsonArraysEqual(string expectedJson, string actualJson)
+        {
+            JArray expected = JArray.Parse(expectedJson);
+            JArray actual = JArray.Parse(actualJson);
 
-            JArray expectedJson = JArray.Parse(expected);
-            JArray actualJson = JArray.Parse(actual);
-
-            Assert.AreEqual(expectedJson.Count, actualJson.Count, string.Format("Expected count [{0}] \t Actual count [{1}]", expectedJson.Count, actualJson.Count));
+            Assert.AreEqual(expected.Count, actual.Count, string.Format("Expected count [{0}] \t Actual count [{1}]", expected.Count, actual.Count));
 
             foreach (JToken expectedToken in expectedJson)
             {
@@ -88,6 +117,13 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
                     Assert.IsTrue(false, string.Format("\n{0}\ndoes not exist in\n{1}", expectedToken.ToString(), expectedJson.ToString()));
                 }
             }
+        }
+
+        private string GetExpectedJson()
+        {
+            string expectedFilePath = "resources/sample.jsonld";
+            string expectedJson = File.ReadAllText(expectedFilePath, Encoding.UTF8);
+            return expectedJson;
         }
     }
 }
