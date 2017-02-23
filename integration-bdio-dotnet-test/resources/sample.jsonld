@@ -1,0 +1,84 @@
+﻿[
+{
+  "specVersion": "1.1.0",
+  "@id": "uuid:45772d33-5353-44f1-8681-3d8a15540646",
+  "@type": "BillOfMaterials",
+  "name": "gradleTestProject Black Duck I/O Export"
+},
+{
+  "revision": "99.5-SNAPSHOT",
+  "@id": "data:com.blackducksoftware.gradle.test/gradleTestProject/99.5-SNAPSHOT",
+  "@type": "Project",
+  "name": "gradleTestProject",
+  "externalIdentifier": {
+    "externalSystemTypeId": "maven",
+    "externalId": "com.blackducksoftware.gradle.test:gradleTestProject:99.5-SNAPSHOT"
+  },
+  "relationship": [
+    {
+      "related": "data:org.apache.cxf/cxf-bundle/2.7.7",
+      "relationshipType": "DYNAMIC_LINK"
+    }
+  ]
+},
+{
+  "revision": "2.7.7",
+  "@id": "data:org.apache.cxf/cxf-bundle/2.7.7",
+  "@type": "Component",
+  "name": "cxf-bundle",
+  "externalIdentifier": {
+    "externalSystemTypeId": "maven",
+    "externalId": "org.apache.cxf:cxf-bundle:2.7.7"
+  },
+  "relationship": [
+    {
+      "related": "data:org.apache.velocity/velocity/1.7",
+      "relationshipType": "DYNAMIC_LINK"
+    },
+    {
+      "related": "data:commons-lang/commons-lang/2.6",
+      "relationshipType": "DYNAMIC_LINK"
+    }
+  ]
+},
+{
+  "revision": "1.7",
+  "@id": "data:org.apache.velocity/velocity/1.7",
+  "@type": "Component",
+  "name": "velocity",
+  "externalIdentifier": {
+    "externalSystemTypeId": "maven",
+    "externalId": "org.apache.velocity:velocity:1.7"
+  },
+  "relationship": [
+    {
+      "related": "data:commons-collections/commons-collections/3.2.1",
+      "relationshipType": "DYNAMIC_LINK"
+    },
+    {
+      "related": "data:commons-lang/commons-lang/2.6",
+      "relationshipType": "DYNAMIC_LINK"
+    }
+  ]
+},
+{
+  "revision": "2.6",
+  "@id": "data:commons-lang/commons-lang/2.6",
+  "@type": "Component",
+  "name": "commons-lang",
+  "externalIdentifier": {
+    "externalSystemTypeId": "maven",
+    "externalId": "commons-lang:commons-lang:2.6"
+  }
+},
+{
+  "revision": "3.2.1",
+  "@id": "data:commons-collections/commons-collections/3.2.1",
+  "@type": "Component",
+  "name": "commons-collections",
+  "externalIdentifier": {
+    "externalSystemTypeId": "maven",
+    "externalId": "commons-collections:commons-collections:3.2.1"
+  }
+}
+]

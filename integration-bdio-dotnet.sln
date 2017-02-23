@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio-dotnet-test", "integration-bdio-dotnet-test\integration-bdio-dotnet-test.csproj", "{0021728A-7615-48D8-882E-D3C896E0FCF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio-dotnet", "integration-bdio-dotnet\integration-bdio-dotnet.csproj", "{3F18A793-4EA7-4970-80F5-BC302EA8905C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0021728A-7615-48D8-882E-D3C896E0FCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0021728A-7615-48D8-882E-D3C896E0FCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0021728A-7615-48D8-882E-D3C896E0FCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0021728A-7615-48D8-882E-D3C896E0FCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F18A793-4EA7-4970-80F5-BC302EA8905C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F18A793-4EA7-4970-80F5-BC302EA8905C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F18A793-4EA7-4970-80F5-BC302EA8905C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F18A793-4EA7-4970-80F5-BC302EA8905C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
