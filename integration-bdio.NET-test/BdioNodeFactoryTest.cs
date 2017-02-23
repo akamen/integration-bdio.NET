@@ -1,5 +1,6 @@
 ﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
@@ -64,20 +65,29 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             bdioWriter.Dispose();
 
             string expected = File.ReadAllText("resources/sample.jsonld");
-            string actualString = stringBuilder.ToString();
+            string actual = stringBuilder.ToString();
 
             JArray expectedJson = JArray.Parse(expected);
-            JArray actualJson = JArray.Parse(actualString);
+            JArray actualJson = JArray.Parse(actual);
 
-            //List<BdioNode> expectedNodes = expectedJson.Values();
-            Assert.AreEqual(expectedJson.Count, actualJson.Count);
-            foreach(JToken node in expectedJson)
+            Assert.AreEqual(expectedJson.Count, actualJson.Count, string.Format("Expected count [{0}] \t Actual count [{1}]", expectedJson.Count, actualJson.Count));
+
+            foreach (JToken expectedToken in expectedJson)
             {
-                Assert.IsTrue(actualJson.Contains(node), "\n" + node.ToString() + "\nis not in\n" + actualJson.ToString());
+                bool found = false;
+                foreach (JToken actualToken in actualJson)
+                {
+                    if (JToken.DeepEquals(expectedToken, actualToken))
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    Assert.IsTrue(false, string.Format("\n{0}\ndoes not exist in\n{1}", expectedToken.ToString(), expectedJson.ToString()));
+                }
             }
-
-            // Assert.AreEqual(expected, actual);
-           //Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
         }
     }
 }
