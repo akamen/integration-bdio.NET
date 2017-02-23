@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio-dotnet-test", "integration-bdio-dotnet-test\integration-bdio-dotnet-test.csproj", "{0021728A-7615-48D8-882E-D3C896E0FCF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio.NET-test", "integration-bdio.NET-test\integration-bdio.NET-test.csproj", "{0021728A-7615-48D8-882E-D3C896E0FCF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio-dotnet", "integration-bdio-dotnet\integration-bdio-dotnet.csproj", "{3F18A793-4EA7-4970-80F5-BC302EA8905C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration-bdio.NET", "integration-bdio.NET\integration-bdio.NET.csproj", "{3F18A793-4EA7-4970-80F5-BC302EA8905C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

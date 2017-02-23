@@ -13,8 +13,6 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
         [TestMethod]
         public void testFactory()
         {
-            string expected = File.ReadAllText("resources/sample.jsonld");
-
             BdioPropertyHelper bdioPropertyHelper = new BdioPropertyHelper();
             BdioNodeFactory bdioNodeFactory = new BdioNodeFactory(bdioPropertyHelper);
 
@@ -64,13 +62,22 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             BdioWriter bdioWriter = new BdioWriter(writer);
             bdioWriter.WriteBdioNodes(bdioNodes);
             bdioWriter.Dispose();
-            string actual = stringBuilder.ToString();
+
+            string expected = File.ReadAllText("resources/sample.jsonld");
+            string actualString = stringBuilder.ToString();
 
             JArray expectedJson = JArray.Parse(expected);
-            JArray actualJson = JArray.Parse(actual);
+            JArray actualJson = JArray.Parse(actualString);
+
+            //List<BdioNode> expectedNodes = expectedJson.Values();
+            Assert.AreEqual(expectedJson.Count, actualJson.Count);
+            foreach(JToken node in expectedJson)
+            {
+                Assert.IsTrue(actualJson.Contains(node), "\n" + node.ToString() + "\nis not in\n" + actualJson.ToString());
+            }
 
             // Assert.AreEqual(expected, actual);
-            Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
+           //Assert.IsTrue(JToken.DeepEquals(expectedJson, actualJson));
         }
     }
 }

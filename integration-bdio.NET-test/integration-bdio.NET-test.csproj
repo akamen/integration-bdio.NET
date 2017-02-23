@@ -58,9 +58,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\integration-bdio-dotnet\integration-bdio-dotnet.csproj">
+    <ProjectReference Include="..\integration-bdio.NET\integration-bdio.NET.csproj">
       <Project>{3f18a793-4ea7-4970-80f5-bc302ea8905c}</Project>
-      <Name>integration-bdio-dotnet</Name>
+      <Name>integration-bdio.NET</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
