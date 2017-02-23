@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("integration-bdio-dotnet")]
+[assembly: AssemblyTitle("integration-bdio.NET")]
 [assembly: AssemblyDescription("Library for constructing BDIO with C#")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Black Duck Software")]
-[assembly: AssemblyProduct("integration-bdio-dotnet")]
+[assembly: AssemblyProduct("integration-bdio.NET")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
