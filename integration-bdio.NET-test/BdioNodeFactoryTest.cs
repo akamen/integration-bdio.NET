@@ -1,12 +1,8 @@
 ﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
 
 namespace com.blackducksoftware.integration.hub.bdio.simple
