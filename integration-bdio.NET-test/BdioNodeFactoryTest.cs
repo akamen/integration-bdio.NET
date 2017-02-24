@@ -2,17 +2,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace com.blackducksoftware.integration.hub.bdio.simple
 {
-    [TestClass]
+    [TestFixture]
     public class BdioNodeFactoryTest
     {
-        [TestMethod]
+        [Test]
         public void testWriterOutput()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -26,7 +28,7 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             VerifyJsonArraysEqual(expectedJson, actualJson);
         }
 
-        [TestMethod]
+        [Test]
         public void TestOutputStreamOutput()
         {
             MemoryStream memoryStream = new MemoryStream();
@@ -56,7 +58,7 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             bdioBillOfMaterials.Id = "uuid:45772d33-5353-44f1-8681-3d8a15540646";
 
             BdioProject bdioProject = bdioNodeFactory.CreateProject(projectName, projectVersion, projectId, projectExternalIdentifier);
-            
+
             BdioComponent cxfBundle = bdioNodeFactory.CreateComponent("cxf-bundle", "2.7.7",
                    bdioPropertyHelper.CreateBdioId("org.apache.cxf", "cxf-bundle", "2.7.7"),
                    bdioPropertyHelper.CreateMavenExternalIdentifier("org.apache.cxf", "cxf-bundle", "2.7.7"));
@@ -99,7 +101,7 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
             JArray expected = JArray.Parse(expectedJson);
             JArray actual = JArray.Parse(actualJson);
 
-            Assert.AreEqual(expected.Count, actual.Count, string.Format("Expected count [{0}] \t Actual count [{1}]", expected.Count, actual.Count));
+            NUnit.Framework.Assert.AreEqual(expected.Count, actual.Count, string.Format("Expected count [{0}] \t Actual count [{1}]", expected.Count, actual.Count));
 
             foreach (JToken expectedToken in expectedJson)
             {
@@ -114,16 +116,14 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
                 }
                 if (!found)
                 {
-                    Assert.IsTrue(false, string.Format("\n{0}\ndoes not exist in\n{1}", expectedToken.ToString(), expectedJson.ToString()));
+                    NUnit.Framework.Assert.IsTrue(false, string.Format("\n{0}\ndoes not exist in\n{1}", expectedToken.ToString(), expectedJson.ToString()));
                 }
             }
         }
 
         private string GetExpectedJson()
         {
-            string expectedFilePath = "resources/sample.jsonld";
-            string expectedJson = File.ReadAllText(expectedFilePath, Encoding.UTF8);
-            return expectedJson;
+            return Properties.Resources.sample;
         }
     }
 }
