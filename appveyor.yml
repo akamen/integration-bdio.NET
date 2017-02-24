@@ -2,7 +2,7 @@ install:
     - nuget restore
 
 build:
-  project: YOURPROJECT.sln
+  project: integration-bdio.NET.sln
   verbosity: detailed
 
 environment:
