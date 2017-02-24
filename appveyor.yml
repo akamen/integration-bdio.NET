@@ -1,0 +1,10 @@
+install:
+    - nuget restore
+
+build:
+  project: YOURPROJECT.sln
+  verbosity: detailed
+
+environment:
+  my_variable:
+    secure: v6/PPE4nIxNrzJRi7gxB2q6bBGRBwPjUZ4hF/LUv+Hc=
