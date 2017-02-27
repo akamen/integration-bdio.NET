@@ -11,7 +11,7 @@ namespace com.blackducksoftware.integration.hub.bdio.simple
     public class BdioNodeFactoryTest
     {
         [Test]
-        public void testWriterOutput()
+        public void TestWriterOutput()
         {
             StringBuilder stringBuilder = new StringBuilder();
             TextWriter writer = new StringWriter(stringBuilder);
