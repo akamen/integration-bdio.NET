@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple.model
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 {
     public class BdioRelationship
     {

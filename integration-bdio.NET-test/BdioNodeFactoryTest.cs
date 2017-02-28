@@ -1,11 +1,11 @@
-﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
+﻿using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
 {
     [TestFixture]
     public class BdioNodeFactoryTest

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple.model
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 {
     public class BdioNode
     {

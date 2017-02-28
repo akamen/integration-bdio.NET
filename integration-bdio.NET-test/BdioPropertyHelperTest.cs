@@ -1,4 +1,5 @@
-﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
+﻿
+using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
 {
     [TestFixture]
     class BdioPropertyHelperTest

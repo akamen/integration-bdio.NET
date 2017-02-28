@@ -1,7 +1,7 @@
-﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
+﻿using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model;
 using System.Collections.Generic;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
 {
     public class BdioPropertyHelper
     {

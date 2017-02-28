@@ -1,10 +1,10 @@
-﻿using com.blackducksoftware.integration.hub.bdio.simple.model;
+﻿using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace com.blackducksoftware.integration.hub.bdio.simple
+namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
 {
     public class BdioWriter : IDisposable
     {

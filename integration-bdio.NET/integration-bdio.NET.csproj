@@ -7,7 +7,7 @@
     <ProjectGuid>{3F18A793-4EA7-4970-80F5-BC302EA8905C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.blackducksoftware.integration.hub.bdio.simple</RootNamespace>
+    <RootNamespace>Com.Blackducksoftware.Integration.Hub.Bdio.Simple</RootNamespace>
     <AssemblyName>integration-bdio.NET</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,12 +48,12 @@
     <Compile Include="BdioNodeFactory.cs" />
     <Compile Include="BdioPropertyHelper.cs" />
     <Compile Include="BdioWriter.cs" />
-    <Compile Include="model\BdioBillOfMaterials.cs" />
-    <Compile Include="model\BdioComponent.cs" />
-    <Compile Include="model\BdioExternalIdentifier.cs" />
-    <Compile Include="model\BdioNode.cs" />
-    <Compile Include="model\BdioProject.cs" />
-    <Compile Include="model\BdioRelationship.cs" />
+    <Compile Include="Model\BdioBillOfMaterials.cs" />
+    <Compile Include="Model\BdioComponent.cs" />
+    <Compile Include="Model\BdioExternalIdentifier.cs" />
+    <Compile Include="Model\BdioNode.cs" />
+    <Compile Include="Model\BdioProject.cs" />
+    <Compile Include="Model\BdioRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

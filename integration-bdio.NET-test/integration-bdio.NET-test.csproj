@@ -6,7 +6,7 @@
     <ProjectGuid>{0021728A-7615-48D8-882E-D3C896E0FCF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.blackducksoftware.integration.hub.bdio.simple</RootNamespace>
+    <RootNamespace>Com.Blackducksoftware.Integration.Hub.Bdio.Simple</RootNamespace>
     <AssemblyName>integration-bdio.NET-test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
