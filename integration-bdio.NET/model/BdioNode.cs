@@ -26,13 +26,13 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             {
                 return false;
             }
-            BdioNode value = obj as BdioNode;
-            bool id = value.Id.Equals(Id);
-            bool type = value.Type.Equals(Type);
-            bool name = value.Name.Equals(Name);
-            bool bdioExternalIdentifer = value.BdioExternalIdentifier.Equals(BdioExternalIdentifier);
-            bool relationships = true;
-            foreach (BdioRelationship relationship in value.Relationships)
+            BdioNode other = obj as BdioNode;
+            bool id = other.Id.Equals(Id);
+            bool type = other.Type.Equals(Type);
+            bool name = other.Name.Equals(Name);
+            bool bdioExternalIdentifer = other.BdioExternalIdentifier.Equals(BdioExternalIdentifier);
+            bool relationships = Relationships.Count == other.Relationships.Count;
+            foreach (BdioRelationship relationship in other.Relationships)
             {
                 if (!Relationships.Contains(relationship))
                 {
