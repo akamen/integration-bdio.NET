@@ -17,7 +17,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             var other = obj as BdioComponent;
             if (other == null)
                 return false;
-            return other.Version.Equals(Version) && base.Equals(obj);
+            return Version == other.Version && base.Equals(obj);
         }
 
         public override int GetHashCode()

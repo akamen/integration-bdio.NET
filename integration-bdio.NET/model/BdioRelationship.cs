@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 {
@@ -16,7 +15,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             var other = obj as BdioRelationship;
             if (other == null)
                 return false;
-            return Related.Equals(other.Related) && RelationshipType.Equals(other.RelationshipType);
+            bool related = Related == other.Related;
+            bool relationshipType = RelationshipType == other.RelationshipType;
+            return related && relationshipType;
         }
 
         public override int GetHashCode()

@@ -16,9 +16,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             {
                 return false;
             }
-            BdioExternalIdentifier value = obj as BdioExternalIdentifier;
-            bool forge = value.Forge == Forge;
-            bool externalId = value.ExternalId == ExternalId;
+            BdioExternalIdentifier other = obj as BdioExternalIdentifier;
+            bool forge = Forge == other.Forge;
+            bool externalId = ExternalId == other.ExternalId;
             return forge && externalId;
         }
 
