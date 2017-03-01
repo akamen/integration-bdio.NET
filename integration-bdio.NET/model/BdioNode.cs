@@ -30,7 +30,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             bool id = Id == other.Id;
             bool type = Type == other.Type;
             bool name = Name == other.Name;
-            bool bdioExternalIdentifer = BdioExternalIdentifier == other.BdioExternalIdentifier;
+            bool bdioExternalIdentifer = (BdioExternalIdentifier == other.BdioExternalIdentifier) || BdioExternalIdentifier.Equals(other.BdioExternalIdentifier);
             bool relationships = Relationships.Count == other.Relationships.Count;
             foreach (BdioRelationship relationship in other.Relationships)
             {
