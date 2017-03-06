@@ -45,7 +45,7 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BdioContent.cs" />
+    <Compile Include="Model\BdioContent.cs" />
     <Compile Include="BdioNodeFactory.cs" />
     <Compile Include="BdioPropertyHelper.cs" />
     <Compile Include="BdioWriter.cs" />

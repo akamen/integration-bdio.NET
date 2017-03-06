@@ -26,9 +26,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
         {
             foreach (BdioNode bdioNode in bdioNodes)
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.NullValueHandling = NullValueHandling.Ignore;
-                serializer.Serialize(writer, bdioNode);
+                WriteBdioNode(bdioNode);
             }
         }
 
