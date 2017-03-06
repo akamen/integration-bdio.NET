@@ -13,8 +13,8 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             BdioContent content = BdioContent.Parse(sampleBdio);
             BdioContent content2 = content;
             Assert.AreEqual(6, content.Count);
-            Assert.IsNotNull(sampleBdio);
-            Assert.AreEqual(content, content2);
+            Assert.IsNotNull(content.ToString());
+            Assert.IsTrue(content.Equals(content2));
         }
     }
 }
