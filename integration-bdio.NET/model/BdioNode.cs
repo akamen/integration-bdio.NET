@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
@@ -22,11 +23,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 
         public override bool Equals(object obj)
         {
-            if (obj == null && obj.GetType() != typeof(BdioNode))
-            {
+            var other = obj as BdioNode;
+            if (other == null)
                 return false;
-            }
-            BdioNode other = obj as BdioNode;
             bool id = Id == other.Id;
             bool type = Type == other.Type;
             bool name = Name == other.Name;

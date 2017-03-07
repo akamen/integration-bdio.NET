@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 {
@@ -12,11 +13,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 
         public override bool Equals(object obj)
         {
-            if (obj == null && obj.GetType() != typeof(BdioExternalIdentifier))
-            {
+            var other = obj as BdioExternalIdentifier;
+            if (other == null)
                 return false;
-            }
-            BdioExternalIdentifier other = obj as BdioExternalIdentifier;
             bool forge = Forge == other.Forge;
             bool externalId = ExternalId == other.ExternalId;
             return forge && externalId;

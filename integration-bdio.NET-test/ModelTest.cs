@@ -19,8 +19,18 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             Assert.IsFalse(content.Equals(null));
             Assert.AreNotEqual(0, content.GetHashCode());
 
+            foreach(BdioNode node in content2.Components)
+            {
+                if(node.Relationships != null && node.Relationships.Count > 0)
+                {
+                    node.Relationships[0].RelationshipType = "Not a type";
+                    break;
+                }
+            }
+            Assert.IsFalse(content.Equals(content2));
+
             BdioComponent component = new BdioComponent();
-            component.Id = "Not Good";
+            component.Id = "Another component";
             content2.Components.Add(component);
             Assert.IsFalse(content.Equals(content2));
         }
