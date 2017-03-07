@@ -1,4 +1,5 @@
-﻿using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Properties;
+﻿using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model;
+using Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Properties;
 using NUnit.Framework;
 
 namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
@@ -15,6 +16,12 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             Assert.AreEqual(6, content.Count);
             Assert.IsNotNull(content.ToString());
             Assert.IsTrue(content.Equals(content2));
+            Assert.IsFalse(content.Equals(null));
+            Assert.AreNotEqual(0,content.GetHashCode());
+
+            BdioComponent component = new BdioComponent();
+            content2.Components.Add(component);
+            Assert.IsFalse(content.Equals(content2));
         }
     }
 }
