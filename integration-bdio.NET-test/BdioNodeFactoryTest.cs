@@ -81,14 +81,15 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             // as the commonsLang component was already included from the cxfBundle component above
             bdioPropertyHelper.AddRelationships(velocity, new List<BdioNode> { commonsCollections, commonsLang });
 
-            List<BdioNode> bdioNodes = new List<BdioNode>();
-            bdioNodes.Add(bdioBillOfMaterials);
-            bdioNodes.Add(bdioProject);
-            bdioNodes.Add(cxfBundle);
-            bdioNodes.Add(velocity);
-            bdioNodes.Add(commonsCollections);
-            bdioNodes.Add(commonsLang);
-
+            List<BdioNode> bdioNodes = new List<BdioNode>
+            {
+                bdioBillOfMaterials,
+                bdioProject,
+                cxfBundle,
+                velocity,
+                commonsCollections,
+                commonsLang
+            };
             return bdioNodes;
         }
 
