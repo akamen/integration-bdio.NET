@@ -13,3 +13,12 @@ after_test:
 # generate report for NUnit testing framework:
     - cmd: packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single integration-bdio.NET-test\bin\Debug\integration-bdio.NET-test.dll" -output:coverage.xml
     - cmd: packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
+
+deploy:
+  provider: NuGet
+  server:                  # remove to push to NuGet.org
+  api_key:
+    secure: OMdcth+rc6XzW6CPCrnzK0t5YGf/124tQdRpU8vqbAXIuYQJdwuwdst/Q8DtQH3
+  skip_symbols: false
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  artifact: /.*\.nupkg/
