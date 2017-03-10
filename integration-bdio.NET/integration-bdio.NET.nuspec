@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Black Duck Software</authors>
+    <owners>Black Duck Software</owners>
+    <licenseUrl>https://github.com/blackducksoftware/integration-bdio.NET/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/blackducksoftware/integration-bdio.NET</projectUrl>
+    <iconUrl>https://avatars2.githubusercontent.com/u/431461?v=3&amp;s=64</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright © 2017 Black Duck Software</copyright>
+    <tags></tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0.8"/>
+    </dependencies>
+  </metadata>
+</package>
