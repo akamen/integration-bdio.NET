@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>Black Duck Software</authors>
     <owners>Black Duck Software</owners>
-    <licenseUrl>https://github.com/blackducksoftware/integration-bdio.NET/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/blackducksoftware/integration-bdio.NET/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/blackducksoftware/integration-bdio.NET</projectUrl>
     <iconUrl>https://avatars2.githubusercontent.com/u/431461?v=3&amp;s=64</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
