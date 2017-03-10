@@ -12,3 +12,6 @@ For use with the .NET framework
 
 ## Documentation ##
 All documentation for integration-bdio-dotnet can be found on the base project:  https://github.com/blackducksoftware/integration-bdio-dotnet/wiki
+
+## License ##
+Apache License 2.0 
