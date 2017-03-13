@@ -13,7 +13,7 @@
     <description>$description$</description>
     <releaseNotes>Initial Release</releaseNotes>
     <copyright>Copyright © 2017 Black Duck Software</copyright>
-    <tags></tags>
+    <tags>BlackDuck hub bdio open source security</tags>
     <dependencies>
       <dependency id="Newtonsoft.Json" version="6.0.8"/>
     </dependencies>
