@@ -49,7 +49,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             string projectExternalId = bdioPropertyHelper.CreateMavenExternalId(projectGroup, projectName, projectVersion);
             string projectBdioId = bdioPropertyHelper.CreateBdioId(projectGroup, projectName, projectVersion);
 
-            BdioBillOfMaterials bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials(projectName);
+            BdioBillOfMaterials bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials(projectName, projectVersion);
             // we are overriding the default value of a new uuid just to pass the json comparison
             bdioBillOfMaterials.Id = "uuid:45772d33-5353-44f1-8681-3d8a15540646";
 

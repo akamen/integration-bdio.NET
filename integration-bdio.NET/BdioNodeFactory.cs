@@ -12,11 +12,11 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             this.BdioPropertyHelper = bdioPropertyHelper;
         }
 
-        public BdioBillOfMaterials CreateBillOfMaterials(string projectName)
+        public BdioBillOfMaterials CreateBillOfMaterials(string projectName, string projectVersion)
         {
             BdioBillOfMaterials billOfMaterials = new BdioBillOfMaterials();
             billOfMaterials.Id = string.Format("uuid:{0}", Guid.NewGuid().ToString());
-            billOfMaterials.Name = string.Format("{0} Black Duck I/O Export", projectName);
+            billOfMaterials.Name = string.Format("{0}/{1} Black Duck I/O Export", projectName, projectVersion);
             billOfMaterials.BdioSpecificationVersion = "1.1.0";
             return billOfMaterials;
         }
