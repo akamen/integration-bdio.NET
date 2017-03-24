@@ -12,9 +12,6 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
         [JsonProperty(PropertyName = "@type")]
         public string Type { get; set; }
 
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
         [JsonProperty(PropertyName = "externalIdentifier")]
         public BdioExternalIdentifier BdioExternalIdentifier { get; set; }
 
@@ -28,7 +25,6 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
                 return false;
             bool id = Id == other.Id;
             bool type = Type == other.Type;
-            bool name = Name == other.Name;
             bool bdioExternalIdentifer = (BdioExternalIdentifier == other.BdioExternalIdentifier) || BdioExternalIdentifier.Equals(other.BdioExternalIdentifier);
             bool relationships = Relationships.Count == other.Relationships.Count;
             foreach (BdioRelationship relationship in other.Relationships)
@@ -39,7 +35,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
                     break;
                 }
             }
-            return id && type && name && bdioExternalIdentifer && relationships;
+            return id && type && bdioExternalIdentifer && relationships;
         }
 
         public override int GetHashCode()
@@ -47,7 +43,6 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
             int result = 7;
             result = 7 * result + Id.GetHashCode();
             result = 7 * result + Type.GetHashCode();
-            result = 7 * result + Name.GetHashCode();
             result = 7 * result + BdioExternalIdentifier.GetHashCode();
             result = 7 * result + Relationships.GetHashCode();
             return result;

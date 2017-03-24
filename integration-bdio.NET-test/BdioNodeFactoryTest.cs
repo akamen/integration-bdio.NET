@@ -38,6 +38,17 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             VerifyJsonArraysEqual(expectedJson, actualJson);
         }
 
+        public void TestCodeLocationOverride()
+        {
+            BdioPropertyHelper bdioPropertyHelper = new BdioPropertyHelper();
+            BdioNodeFactory bdioNodeFactory = new BdioNodeFactory(bdioPropertyHelper);
+            BdioBillOfMaterials bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials("", "name", "version");
+            Assert.AreEqual("name/version Black Duck I/O Export", bdioBillOfMaterials.SpdxName);
+
+            bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials("override", "name", "version");
+            Assert.AreEqual("override", bdioBillOfMaterials.SpdxName);
+        }
+
         private List<BdioNode> GetBdioNodes()
         {
             BdioPropertyHelper bdioPropertyHelper = new BdioPropertyHelper();
@@ -49,7 +60,7 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple
             string projectExternalId = bdioPropertyHelper.CreateMavenExternalId(projectGroup, projectName, projectVersion);
             string projectBdioId = bdioPropertyHelper.CreateBdioId(projectGroup, projectName, projectVersion);
 
-            BdioBillOfMaterials bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials(projectName, projectVersion);
+            BdioBillOfMaterials bdioBillOfMaterials = bdioNodeFactory.CreateBillOfMaterials("", projectName, projectVersion);
             // we are overriding the default value of a new uuid just to pass the json comparison
             bdioBillOfMaterials.Id = "uuid:45772d33-5353-44f1-8681-3d8a15540646";
 

@@ -6,6 +6,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
         [JsonProperty(PropertyName = "specVersion")]
         public string BdioSpecificationVersion { get; set; }
 
+        [JsonProperty(PropertyName = "spdx:name")]
+        public string SpdxName { get; set; }
+
         public BdioBillOfMaterials()
         {
             Type = "BillOfMaterials";

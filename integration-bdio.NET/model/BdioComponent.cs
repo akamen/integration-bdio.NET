@@ -4,6 +4,9 @@ namespace Com.Blackducksoftware.Integration.Hub.Bdio.Simple.Model
 {
     public class BdioComponent : BdioNode
     {
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
+
         [JsonProperty(PropertyName = "revision")]
         public string Version { get; set; }
 
