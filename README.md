@@ -4,6 +4,7 @@ For use with the .NET framework
 
 ## Build ##
 [![Build status](https://ci.appveyor.com/api/projects/status/y5gghn8w70tihdy3?svg=true)](https://ci.appveyor.com/project/akamen/integration-bdio-net)
+[![Build Status](https://travis-ci.org/blackducksoftware/integration-bdio.NET.svg?branch=master)](https://travis-ci.org/blackducksoftware/integration-bdio.NET)
 [![Coverage Status](https://coveralls.io/repos/github/blackducksoftware/integration-bdio.NET/badge.svg?branch=master)](https://coveralls.io/github/blackducksoftware/integration-bdio.NET?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
