@@ -9,7 +9,7 @@ For use with the .NET framework
 
 
 ## Where can I get the latest release? ##
-⁬Github
+⁬Latest packages and built and published to nuget.org
 
 ## Documentation ##
 All documentation for integration-bdio-dotnet can be found on the base project:  https://github.com/blackducksoftware/integration-bdio-dotnet/wiki
