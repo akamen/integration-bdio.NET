@@ -2,4 +2,3 @@ language: csharp
 solution: integration-bdio.NET.sln
 install:
   - nuget restore integration-bdio.NET.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
