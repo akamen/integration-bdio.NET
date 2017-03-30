@@ -1,4 +1,6 @@
 language: csharp
 solution: integration-bdio.NET.sln
-install:
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
   - nuget restore integration-bdio.NET.sln
