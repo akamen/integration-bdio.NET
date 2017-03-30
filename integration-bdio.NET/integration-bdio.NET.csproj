@@ -48,6 +48,13 @@
     <Compile Include="BdioNodeFactory.cs" />
     <Compile Include="BdioPropertyHelper.cs" />
     <Compile Include="BdioWriter.cs" />
+    <Compile Include="Model\BdioBillOfMaterials.cs" />
+    <Compile Include="Model\BdioComponent.cs" />
+    <Compile Include="Model\BdioContent.cs" />
+    <Compile Include="Model\BdioExternalIdentifier.cs" />
+    <Compile Include="Model\BdioNode.cs" />
+    <Compile Include="Model\BdioProject.cs" />
+    <Compile Include="Model\BdioRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
