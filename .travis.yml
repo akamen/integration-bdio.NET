@@ -4,5 +4,3 @@ before_install:
   - sudo apt-get install nunit-console
 before_script:
   - nuget restore integration-bdio.NET.sln
-addons:
-  srcclr: true
