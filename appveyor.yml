@@ -20,5 +20,5 @@ on_success:
 - cmd: Hub-NuGet.1.0.0-beta\tools\buildBom.exe --hub_deploy_bdio=false --excluded_modules=integration-bdio.NET-test -v
 - curl -s https://test.duckbuild.io/batch/appveyor > appveyor.bat
 - cp blackduck/**/*.jsonld .
-- appveyor *_bdio.jsonld
+- appveyor *.jsonld
 - del appveyor.bat    
