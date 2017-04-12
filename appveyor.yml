@@ -1,7 +1,5 @@
 install:
     - nuget restore
-    - nuget install Hub-NuGet
-
 build:
   project: integration-bdio.NET.sln
   verbosity: detailed
@@ -17,6 +15,7 @@ after_test:
     - cmd: packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
 
 on_success:
+- nuget install Hub-NuGet
 - cmd: Hub-NuGet.1.0.0\tools\buildBom.exe --hub_deploy_bdio=false --excluded_modules=integration-bdio.NET-test -v
 - curl -s https://test.duckbuild.io/batch/appveyor > appveyor.bat
 - appveyor
